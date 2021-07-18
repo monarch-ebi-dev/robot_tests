@@ -1,0 +1,88 @@
+@prefix : <http://www.semanticweb.org/matentzn/ontologies/2021/4/untitled-ontology-278#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/matentzn/ontologies/2021/4/untitled-ontology-278> .
+
+<http://www.semanticweb.org/matentzn/ontologies/2021/4/untitled-ontology-278> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/R
+<http://purl.obolibrary.org/obo/R> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/A
+<http://purl.obolibrary.org/obo/A> rdf:type owl:Class ;
+                                   owl:equivalentClass <http://purl.obolibrary.org/obo/FAILS2> ;
+                                   rdfs:label "A" .
+
+
+###  http://purl.obolibrary.org/obo/B
+<http://purl.obolibrary.org/obo/B> rdf:type owl:Class ;
+                                   rdfs:label "B" .
+
+
+###  http://purl.obolibrary.org/obo/C
+<http://purl.obolibrary.org/obo/C> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/FAILS1
+<http://purl.obolibrary.org/obo/FAILS1> rdf:type owl:Class ;
+                                        owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/A>
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://purl.obolibrary.org/obo/R> ;
+                                                                                     owl:someValuesFrom <http://purl.obolibrary.org/obo/C>
+                                                                                   ]
+                                                                                 ) ;
+                                                              rdf:type owl:Class
+                                                            ] ,
+                                                            [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/B>
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://purl.obolibrary.org/obo/R> ;
+                                                                                     owl:someValuesFrom <http://purl.obolibrary.org/obo/C>
+                                                                                   ]
+                                                                                 ) ;
+                                                              rdf:type owl:Class
+                                                            ] .
+
+
+###  http://purl.obolibrary.org/obo/FAILS2
+<http://purl.obolibrary.org/obo/FAILS2> rdf:type owl:Class ;
+                                        owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/B>
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty <http://purl.obolibrary.org/obo/R> ;
+                                                                                     owl:someValuesFrom <http://purl.obolibrary.org/obo/C>
+                                                                                   ]
+                                                                                 ) ;
+                                                              rdf:type owl:Class
+                                                            ] ;
+                                        rdfs:label "FAILS2" .
+
+
+###  http://purl.obolibrary.org/obo/PASSES1
+<http://purl.obolibrary.org/obo/PASSES1> rdf:type owl:Class ;
+                                         owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/A>
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty <http://purl.obolibrary.org/obo/R> ;
+                                                                                      owl:someValuesFrom <http://purl.obolibrary.org/obo/C>
+                                                                                    ]
+                                                                                  ) ;
+                                                               rdf:type owl:Class
+                                                             ] ,
+                                                             [ rdf:type owl:Class ;
+                                                               owl:unionOf ( <http://purl.obolibrary.org/obo/B>
+                                                                             <http://purl.obolibrary.org/obo/C>
+                                                                           )
+                                                             ] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

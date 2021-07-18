@@ -1,0 +1,53 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?entity ?property ?value ?entity2 WHERE {
+  VALUES ?property { obo:IAO_0000115
+                     obo:IAO_0000600 }
+
+  
+  {
+    ?entity ?property ?value .
+    ?entity2 ?property ?value .
+    FILTER NOT EXISTS {
+    ?a1 a owl:Axiom ;
+           owl:annotatedSource ?entity ;
+           owl:annotatedProperty ?property ;
+           owl:annotatedTarget ?value ;
+           ?ap1 ?av1 .}
+    FILTER NOT EXISTS {
+    ?a2 a owl:Axiom ;
+         owl:annotatedSource ?entity2 ;
+         owl:annotatedProperty ?property ;
+         owl:annotatedTarget ?value ;
+         ?ap2 ?av2.
+    }
+}
+UNION {
+  ?entity ?property ?value .
+  ?entity2 ?property ?value .
+  ?a1 a owl:Axiom ;
+         owl:annotatedSource ?entity ;
+         owl:annotatedProperty ?property ;
+         owl:annotatedTarget ?value ;
+         ?ap1 ?av1 .
+   ?a2 a owl:Axiom ;
+        owl:annotatedSource ?entity2 ;
+        owl:annotatedProperty ?property ;
+        owl:annotatedTarget ?value .
+  
+  FILTER NOT EXISTS {
+       ?a2 ?ap2 ?av2.
+       FILTER(?av1 != ?av2)
+  }
+}
+
+FILTER NOT EXISTS { ?entity owl:deprecated true }
+FILTER NOT EXISTS { ?entity2 owl:deprecated true }
+FILTER (?entity != ?entity2)
+FILTER (!isBlank(?entity))
+FILTER (!isBlank(?entity2))
+
+}
+#ORDER BY DESC(UCASE(str(?value)))
