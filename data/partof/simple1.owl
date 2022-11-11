@@ -1,0 +1,32 @@
+Prefix(:=<http://www.semanticweb.org/matentzn/ontologies/2022/10/untitled-ontology-740#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/matentzn/ontologies/2022/10/untitled-ontology-740>
+
+Declaration(Class(<http://test.org/A>))
+Declaration(Class(<http://test.org/B>))
+Declaration(Class(<http://test.org/C>))
+Declaration(ObjectProperty(<http://test.org/partOf>))
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://test.org/A> (<http://test.org/A>)
+
+SubClassOf(<http://test.org/A> ObjectSomeValuesFrom(<http://test.org/partOf> <http://test.org/B>))
+
+# Class: <http://test.org/B> (B)
+
+AnnotationAssertion(rdfs:label <http://test.org/B> "B")
+SubClassOf(<http://test.org/B> ObjectSomeValuesFrom(<http://test.org/partOf> <http://test.org/C>))
+
+
+)
