@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/matentzn/ontologies/2022/11/untitled-ontology-7/"
+     xml:base="http://www.semanticweb.org/matentzn/ontologies/2022/11/untitled-ontology-7/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/matentzn/ontologies/2022/11/untitled-ontology-7"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/R -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/TEST/R">
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/S -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/TEST/S">
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/A -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TEST/A">
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/B -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TEST/B">
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/C -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TEST/C">
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/E -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TEST/E">
+        <owl:equivalentClass rdf:resource="http://purl.obolibrary.org/obo/TEST/W"/>
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+        <rdfs:comment>Left hand side in an equivalence, should be included.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/F -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TEST/F">
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/V -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TEST/V">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/TEST/R"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/TEST/A"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+        <rdfs:comment>Does not have a genus, and should therefore not be included in logicalDefinitionAxioms.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/W -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TEST/W">
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+        <rdfs:comment>Simple equivalence, should be included.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/X -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TEST/X">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/TEST/V"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/TEST/R"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/TEST/S"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/TEST/A"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+        <rdfs:comment>Complex axiom, not sure if it should be included in logicalDefinitionAxioms. But if it should be included, it should be included as a whole, or not at all.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/Y -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TEST/Y">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/TEST/V"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/TEST/R"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/TEST/A"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+        <rdfs:comment>Valid definition should be included in &quot;logicalDefinitionAxioms&quot;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TEST/Z -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TEST/Z">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/TEST/A"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/TEST/B"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+        <rdfs:comment>Disjunctive axiom, not sure what should happen in logicalDefinitionAxioms.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.22.2022-05-07T21:32:11Z) https://github.com/owlcs/owlapi -->
+
